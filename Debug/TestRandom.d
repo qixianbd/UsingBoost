@@ -1,0 +1,1 @@
+TestRandom.d: ../TestRandom.cc
