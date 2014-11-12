@@ -7,45 +7,35 @@
 #include <boost/random.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/scoped_ptr.hpp>
+#include <boost/scoped_array.hpp>
 #include <iostream>
 #include <boost/random.hpp>
 #include <boost/shared_array.hpp>
 #include <algorithm>
 #include <iterator>
+#include "Person.h"
 using namespace std;
 using namespace boost;
 
-class Person{
-		std::string key;
-		std::string personName;
-	public:
-		Person():key("1234"), personName("wqm"){
-
-		}
-		Person(const std::string& id, const std::string& name): key(id), personName(name){
-
-		}
-		~Person(){
-			cerr << "delete the object. " << endl;
-		}
-		std::string getKey()const{
-			return key;
-		}
-		friend std::ostream& operator<<(std::ostream& os, const Person& p);
-};
-std::ostream& operator<<(std::ostream& os, const Person& p){
-	os << p.key << "\t" << p.personName << "\t";
-	return os;
-}
 
 void func(){
 	for(int i = 0; i < 20; i++){
 		scoped_ptr<Person> p(new Person);
-		cerr << p->getKey() << "\n";
+		//cerr << p->getKey() << "\n";
 	}
+	int *ap = new int [20];
+	scoped_array<int> sa(ap);
+	for(int i = 0; i < 20; i++){
+		sa[i] = i*5;
+	}
+	for(int i = 0; i < 20; i++){
+		cerr << sa[i] << "\t";
+	}
+	cerr << "\n";
 }
 
 
+#ifdef TEST_RANDOM
 int main ( )
   {
   uniform_int<> distribution(1, 10) ;
@@ -53,7 +43,7 @@ int main ( )
   variate_generator<mt19937, uniform_int<> > myrandom (engine, distribution);
 
   for (int i=0; i<10; ++i)
-    cout << myrandom() << endl;
+    cerr << myrandom() << endl;
 
   shared_ptr<Person> ptr(new Person());
   cerr << "key = "  << ptr->getKey() << endl;
@@ -73,12 +63,12 @@ for(int i = 0; i < 10; i++){
 }
 
 
-copy(&aptr[0], &aptr[10], ostream_iterator<int>(cerr, "\t"));
+copy(aptr.get(), aptr.get() + 10,  ostream_iterator<int>(cerr, "\t"));
 
 cerr << "\ncount = " << p.use_count() << endl;
 
 func();
   return 0;
   }
-
+#endif
 

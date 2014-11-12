@@ -43,7 +43,7 @@ all: UsingBoost
 UsingBoost: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -pg -ftest-coverage -fprofile-arcs -o "UsingBoost" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/usr/local/lib -pg -ftest-coverage -fprofile-arcs -o "UsingBoost" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
