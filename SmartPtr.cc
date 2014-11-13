@@ -36,9 +36,11 @@ int testSharedPtr(){
 	return 0;
 }
 
+#ifdef TEST_SMARTPTR
 int main()
 {
 	testSharedArray();
+	testSharedPtr();
 }
-
+#endif
 
