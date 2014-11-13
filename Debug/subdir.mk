@@ -4,31 +4,37 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CC_SRCS += \
+../Person.cc \
 ../Random.cc \
 ../TestBasicAtomic.cc \
 ../TestPool.cc \
 ../TestProducerConsumer.cc \
 ../TestProducerConsumer2.cc \
+../TestProducerConsumer3.cc \
 ../TestRandom.cc \
 ../TestSmartPtr.cc \
 ../Utility.cc 
 
 OBJS += \
+./Person.o \
 ./Random.o \
 ./TestBasicAtomic.o \
 ./TestPool.o \
 ./TestProducerConsumer.o \
 ./TestProducerConsumer2.o \
+./TestProducerConsumer3.o \
 ./TestRandom.o \
 ./TestSmartPtr.o \
 ./Utility.o 
 
 CC_DEPS += \
+./Person.d \
 ./Random.d \
 ./TestBasicAtomic.d \
 ./TestPool.d \
 ./TestProducerConsumer.d \
 ./TestProducerConsumer2.d \
+./TestProducerConsumer3.d \
 ./TestRandom.d \
 ./TestSmartPtr.d \
 ./Utility.d 

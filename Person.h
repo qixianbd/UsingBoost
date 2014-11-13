@@ -20,7 +20,7 @@ class Person{
 
 		}
 		~Person(){
-			std::cerr << "delete the object. " << std::endl;
+			//std::cerr << "delete the object. " << std::endl;
 		}
 		std::string getKey()const{
 			return key;
@@ -30,6 +30,9 @@ class Person{
 		}
 		void print(std::ostream& os)const{
 			os << key << "\t" << personName << "\t" << std::endl;
+		}
+		bool operator== (const Person& p){
+			return key == p.key && personName == p.personName;
 		}
 		friend std::ostream& operator<<(std::ostream& os, const Person& p);
 };

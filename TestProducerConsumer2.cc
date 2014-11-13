@@ -56,7 +56,7 @@ void consumeFunc(boost::mutex& mu, std::queue<std::string> *strVec){
 	return ;
 }
 
-
+#ifdef TEST_PRODUCERCONSUMER_2
 int main()
 {
 
@@ -67,7 +67,7 @@ int main()
 	sleep(1000);
 	return 0;
 }
-
+#endif
 
 
 
