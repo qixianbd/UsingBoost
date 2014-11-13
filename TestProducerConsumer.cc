@@ -77,6 +77,7 @@ void consumeFunc(boost::mutex& mu, char* buf){
 }
 
 
+#ifdef TEST_PRODUCERCONSUMER
 int main()
 {
 
@@ -90,6 +91,6 @@ int main()
 	sleep(1000);
 	return 0;
 }
-
+#endif
 
 
