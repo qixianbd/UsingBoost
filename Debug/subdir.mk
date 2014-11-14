@@ -4,6 +4,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CC_SRCS += \
+../MtHashTable.cc \
+../MtHashTable_Test.cc \
 ../Person.cc \
 ../Random.cc \
 ../TestBasicAtomic.cc \
@@ -16,6 +18,8 @@ CC_SRCS += \
 ../Utility.cc 
 
 OBJS += \
+./MtHashTable.o \
+./MtHashTable_Test.o \
 ./Person.o \
 ./Random.o \
 ./TestBasicAtomic.o \
@@ -28,6 +32,8 @@ OBJS += \
 ./Utility.o 
 
 CC_DEPS += \
+./MtHashTable.d \
+./MtHashTable_Test.d \
 ./Person.d \
 ./Random.d \
 ./TestBasicAtomic.d \
@@ -44,7 +50,7 @@ CC_DEPS += \
 %.o: ../%.cc
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/usr/local/include -O0 -g3 -p -pg -ftest-coverage -fprofile-arcs -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

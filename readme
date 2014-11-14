@@ -1,2 +1,10 @@
-TestProducerConsumer.cc :
+1. TestProducerConsumer.cc :
 			learning multithreading by implement a simple producer and consumer application
+			
+2. MtHashTable:		(including MtHashTable.h MtHashTable.cc MtHashTable_Test.cc)
+			The feature of the Hash Table.
+			2.1 A very simple hash table which can only stored string as the element. 
+			2.2 Using multiple thread. 
+			2.3 Without the supporting of rehash. 
+			2.4 mainly used two kind locks, the bucket lock and table lock. For each insert, search, or delete, only lock the specific bucket. 
+				If update or read the statistic data of the whole hash table, then we should lock the table lock.

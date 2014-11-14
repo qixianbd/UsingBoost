@@ -24,8 +24,11 @@ private:
 	enum{INIT_SIZE = 4099};
 	struct HashBucket{
 		std::list<T>* basePtr;
-		size_t listLength;
+		int listLength;
 		mutex_t mu;
+		HashBucket():basePtr(NULL), listLength(0){
+
+		}
 	};
 
 public:
@@ -243,7 +246,8 @@ inline void HashTable<T>::deleteElement(const std::string& key,
 template<typename T>
 void HashTable<T>::finalize(){
 	for(size_t i = 0; i < size; i++){
-		delete bucketPtr[i].basePtr;
+		delete bucketPtr[i].basePtr;		// perhaps may occur "delete NULL" situation, when bucketPtr[i].basePtr is NULL. The key is delete NULL is safe.
+		bucketPtr[i].basePtr = NULL;
 	}
 	delete[] bucketPtr;
 }

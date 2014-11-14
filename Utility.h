@@ -8,6 +8,9 @@
 #ifndef UTILITY_H_
 #define UTILITY_H_
 
+
+namespace myutility{
+#include <string>
 /**
  * @Note this return type is long long int.
  * @return return the seconds us seconds that present know.
@@ -34,5 +37,10 @@ bool startWithSubString(const std::string& str, const std::string& sub);
 bool endWithSubString(const std::string& str, const std::string& sub);
 
 bool isAllDigit(const std::string& str);
+
+unsigned long hashFuncForString(const std::string & str, unsigned long hashSize);
+
+const  int IMID_NUMCOUNT = 10 * 1024;
+}
 
 #endif /* UTILITY_H_ */

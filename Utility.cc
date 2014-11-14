@@ -13,6 +13,8 @@
 #include <stdlib.h>
 #include "Utility.h"
 
+namespace myutility{
+
 long long usec(void) {
     struct timeval tv;
     gettimeofday(&tv,NULL);
@@ -129,4 +131,20 @@ bool isAllDigit(const std::string& str){
 	return true;
 }
 
+unsigned long hashFuncForString(const std::string& key,
+		unsigned long hashSize) {
+	int hashVal = 0;
+	int len = key.length();
+	for(int i = 0; i < len; i++){
+		hashVal = 37*hashVal + key[i];
+	}
+	hashVal %= hashSize;
+	if(hashVal < 0){
+		hashVal += hashSize;
+	}
+	return hashVal;
+}
 
+
+
+}

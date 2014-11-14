@@ -12,16 +12,16 @@
 int testSharedArray(){
 	typedef long long llong;
 	llong start, end;
-	start = usec();
+	start = myutility::usec();
 	const int ARRAYSIZE = 100*1024;
 	boost::shared_array<int> sa(new int[ARRAYSIZE]);
-	end = usec();
+	end = myutility::usec();
 	std::cerr << "Initialize the scoped_array take time " << end- start << std::endl;
 
 	Random r;
-	start = usec();
+	start = myutility::usec();
 	boost::shared_array<int> sb( r.generateUniqueIntArray(0, ARRAYSIZE));
-	end = usec();
+	end = myutility::usec();
 	std::cerr << "Generate  the scoped_array take time " << end- start << std::endl;
 	for(int i = 0; i < ARRAYSIZE;i++){
 		std::cerr << sb[i] << std::endl;

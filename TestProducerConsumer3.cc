@@ -38,7 +38,7 @@ void deleteData(HashTable<Person> & ht){
 }
 
 
-
+#ifdef TEST_PRODUCERCONSUMER_3
 int main()
 {
 	HashTable<Person> personHt;
@@ -52,5 +52,5 @@ int main()
 	std::cerr << "***************This is  The End **********" << std::endl;
 	return 0;
 }
-
+#endif
 
